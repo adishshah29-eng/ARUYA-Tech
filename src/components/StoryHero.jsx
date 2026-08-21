@@ -22,14 +22,14 @@ const BEATS = [
     chapter: 'Build',
     title: 'Then the first connections form.',
     body: 'Ideas turn into structure — the beginning of something that can scale.',
-    image: '/story/2-build-connect.jpg',
+    image: '/story/3-automate-link.jpg',
   },
   {
     key: 'automate-link',
     chapter: 'Automate',
     title: 'The system starts linking everything together.',
     body: 'Manual steps quietly become a network that runs on its own.',
-    image: '/story/3-automate-link.jpg',
+    image: '/story/2-build-connect.jpg',
   },
   {
     key: 'automate-live',

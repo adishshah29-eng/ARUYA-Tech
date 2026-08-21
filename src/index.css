@@ -208,7 +208,6 @@ h4 {
 
 .split-word {
   display: inline-block;
-  overflow: hidden;
   vertical-align: top;
   line-height: 1.15;
 }

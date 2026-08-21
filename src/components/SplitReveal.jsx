@@ -14,16 +14,18 @@ export default function SplitReveal({ as: Tag = 'h2', text, className = '', dela
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (reduceMotion) {
-      gsap.set(words, { yPercent: 0, opacity: 1 })
+      gsap.set(words, { x: 0, opacity: 1 })
       return
     }
 
     const ctx = gsap.context(() => {
-      gsap.set(words, { yPercent: 115, opacity: 0, rotate: 4 })
+      // each word flies in from a randomly chosen side (left or right),
+      // not a uniform direction, so the reveal feels less mechanical
+      const dirs = words.length ? Array.from(words).map(() => (Math.random() < 0.5 ? -1 : 1)) : []
+      gsap.set(words, { x: (i) => dirs[i] * 46, opacity: 0 })
       gsap.to(words, {
-        yPercent: 0,
+        x: 0,
         opacity: 1,
-        rotate: 0,
         duration: 0.8,
         delay: delay / 1000,
         stagger: 0.032,

@@ -130,7 +130,7 @@ export default function StoryHero() {
             className="story-frame"
             ref={(el) => (frameRefs.current[i] = el)}
             style={{
-              backgroundImage: `linear-gradient(160deg, var(--ink), var(--ink-800)), url(${beat.image})`,
+              backgroundImage: `url(${beat.image}), linear-gradient(160deg, var(--ink), var(--ink-800))`,
             }}
           />
         ))}

@@ -66,17 +66,12 @@ export default function StoryHero() {
   useLayoutEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    // a locked-camera "wipe": each incoming frame reveals itself over the
-    // static frame beneath it via a diagonal clip-path sweep, rather than
-    // cross-dissolving. The camera never moves — only the clipped shape
-    // reveals the next frame, which reads as a real scene change instead
-    // of a soft fade.
-    const HIDDEN_CLIP = 'polygon(120% 0%, 100% 0%, 100% 100%, 100% 100%)'
-    const REVEALED_CLIP = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
-
+    // the 6 frames are genuinely camera-locked (same room, same shot), so
+    // a straight cross-dissolve reads as real video frames blending into
+    // each other — no directional wipe, just layered opacity like footage.
     const ctx = gsap.context(() => {
-      gsap.set(frameRefs.current, { clipPath: HIDDEN_CLIP, scale: 1.05 })
-      gsap.set(frameRefs.current[0], { clipPath: REVEALED_CLIP })
+      gsap.set(frameRefs.current, { opacity: 0, scale: 1.04 })
+      gsap.set(frameRefs.current[0], { opacity: 1 })
       gsap.set(captionRefs.current, { opacity: 0 })
       gsap.set(captionRefs.current[0], { opacity: 1 })
       gsap.set(titleRefs.current, { yPercent: 100 })
@@ -90,7 +85,8 @@ export default function StoryHero() {
 
       if (reduceMotion) {
         const last = BEATS.length - 1
-        gsap.set(frameRefs.current, { clipPath: REVEALED_CLIP, scale: 1 })
+        gsap.set(frameRefs.current, { opacity: 0, scale: 1 })
+        gsap.set(frameRefs.current[last], { opacity: 1 })
         gsap.set(captionRefs.current, { opacity: 0 })
         gsap.set(captionRefs.current[last], { opacity: 1 })
         gsap.set(titleRefs.current, { yPercent: 0 })
@@ -99,7 +95,7 @@ export default function StoryHero() {
       }
 
       frameRefs.current.forEach((f, i) => {
-        gsap.to(f, { scale: '+=0.05', duration: 9, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: i * 0.35 })
+        gsap.to(f, { scale: '+=0.04', duration: 10, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: i * 0.4 })
       })
 
       const tl = gsap.timeline({
@@ -123,7 +119,8 @@ export default function StoryHero() {
       BEATS.forEach((_, i) => {
         if (i === BEATS.length - 1) return
         const start = i * segment
-        tl.to(frameRefs.current[i + 1], { clipPath: REVEALED_CLIP, duration: segment * 0.55, ease: 'power2.inOut' }, start + segment * 0.15)
+        tl.to(frameRefs.current[i], { opacity: 0, duration: segment * 0.6, ease: 'sine.inOut' }, start + segment * 0.15)
+          .to(frameRefs.current[i + 1], { opacity: 1, duration: segment * 0.6, ease: 'sine.inOut' }, start + segment * 0.15)
           .to(titleRefs.current[i], { yPercent: -100, duration: segment * 0.32, ease: 'power2.in' }, start + segment * 0.05)
           .to(captionRefs.current[i], { opacity: 0, duration: segment * 0.25 }, start + segment * 0.1)
           .call(() => setActive(i + 1), null, start + segment * 0.4)

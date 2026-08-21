@@ -21,7 +21,7 @@
   background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
-  will-change: clip-path, transform;
+  will-change: opacity, transform;
 }
 
 .story-scrim {

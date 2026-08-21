@@ -5,8 +5,9 @@
   right: 0;
   z-index: 100;
   background: transparent;
+  color: var(--white);
   transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease),
-    border-color 0.3s var(--ease);
+    border-color 0.3s var(--ease), color 0.3s var(--ease);
   border-bottom: 1px solid transparent;
 }
 
@@ -14,6 +15,31 @@
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   border-bottom-color: var(--line);
+  color: var(--ink);
+}
+
+.site-header:not(.is-scrolled) .logo {
+  color: var(--white);
+}
+
+.site-header:not(.is-scrolled) .logo-sub {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.site-header:not(.is-scrolled) .logo-mark {
+  color: var(--white);
+}
+
+.site-header:not(.is-scrolled) .nav-desktop a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.site-header:not(.is-scrolled) .nav-desktop a:hover {
+  color: var(--white);
+}
+
+.site-header:not(.is-scrolled) .nav-toggle span {
+  background: var(--white);
 }
 
 .header-inner {

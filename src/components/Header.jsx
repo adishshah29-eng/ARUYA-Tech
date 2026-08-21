@@ -13,7 +13,19 @@ export default function Header() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
+    const hero = document.querySelector('.story-hero')
+
+    const onScroll = () => {
+      if (!hero) {
+        setScrolled(window.scrollY > 8)
+        return
+      }
+      // the hero stays pinned (visually fixed) for a long internal scroll
+      // range, so scrollY alone fires far too early — only flip once the
+      // pinned hero has actually scrolled out from under the header.
+      setScrolled(hero.getBoundingClientRect().bottom <= 0)
+    }
+
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)

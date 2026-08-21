@@ -1,75 +1,79 @@
-# Story image prompts — Build / Automate / Scale
+# Story image prompts — "The Workshop"
 
-Generate all 3 in the same chat/session so ChatGPT keeps a consistent style
-across them. Ask for 16:9 landscape. If one comes back too different in
-lighting/color from the others, regenerate just that one and reference the
-others ("match the lighting and color grading of the previous image").
+One physical workshop, evolving through 6 beats — Build (raw → assembling),
+Automate (connecting → running), Scale (expanding → thriving). Warm
+documentary/film-photography look, not sci-fi, not blue-tinted digital art —
+that's the thing to steer away from.
 
----
+Generate all 6 in the same ChatGPT session so the style stays consistent.
+Ask for 16:9 landscape. If one drifts in lighting/color from the others,
+regenerate it and say "match the lighting and color grading of the previous
+image" — consistency across the 6 matters more than any single shot being
+perfect.
 
-## Set A — Physical scene evolving
-
-**1. Build**
-> A minimal, empty founder's workspace at early morning, wide 16:9 shot. A
-> bare wooden desk with a laptop open to a blank code editor, a whiteboard
-> behind it with rough hand-sketched diagrams and arrows, a few unplugged
-> cables coiled loosely, a plain coffee cup. Soft cool blue window light,
-> slightly unfinished and raw feeling, minimal and uncluttered, shallow
-> depth of field, photorealistic, muted navy and electric blue color
-> grading, no visible text or logos.
-
-**2. Automate**
-> The same desk and workspace as before, now mid-flow: three monitors
-> glowing with connected workflow diagrams and dashboards, cables now
-> neatly routed, the whiteboard behind now filled with a clean organized
-> flowchart with glowing blue connecting lines, a small automation hub
-> device on the desk. Same cool blue lighting and color
-> grading as before, photorealistic, sense of quiet motion and systems
-> running, no visible text or logos.
-
-**3. Scale**
-> A wide modern tech studio, wide 16:9 shot, evolved from the same desk
-> which is now one of many workstations in a larger open space, more
-> monitors tiled with dashboards, a city skyline visible through large
-> windows in the background, warm collaborative energy but same navy and
-> electric blue color grading as the previous two images, photorealistic,
-> sense of expansion and growth, no visible text or logos.
+Shared style note baked into every prompt: warm amber/rust/cream color
+grading, 35mm film photography look, natural or tungsten light, shallow
+depth of field, hands and objects only (no faces — keeps AI generation
+consistent and keeps focus on the work, not a recurring "character").
 
 ---
 
-## Set B — Abstract / generative, elevated version of a node network
+**1. Build — Raw**
+> An empty wooden workbench at dawn, wide 16:9 shot. Bare walls, a single
+> hand tool laid out, a blank sheet of paper pinned up, dust motes visible
+> in warm morning light through a window. Nothing built yet — quiet and
+> unfinished. Warm amber and cream color grading, 35mm film photography
+> look, shallow depth of field, no people, no text or logos.
 
-**1. Build**
-> Abstract 3D render, wide 16:9, dark navy background (#0a1f5c). Scattered
-> glowing electric-blue (#1a3fc4) particles and small spheres floating
-> disconnected in space, like raw unassembled matter, soft bokeh depth of
-> field, cinematic lighting, no text, no logos, high detail, dark and
-> moody with glowing highlights.
+**2. Build — Assembling**
+> The same workbench, now mid-build, wide 16:9 shot. A pair of hands
+> sketching a rough diagram on paper pinned to the wall, tools scattered
+> with purpose, a half-finished wooden and metal object taking shape on
+> the bench. Warm tungsten light, same amber and cream color grading as
+> the previous image, 35mm film look, hands and objects only — no faces,
+> no text or logos.
 
-**2. Automate**
-> Abstract 3D render, wide 16:9, same dark navy background (#0a1f5c) and
-> electric-blue (#1a3fc4) glowing particles as before, but now organized
-> into a clean symmetric network of connected nodes with glowing lines
-> radiating from a central hub, orderly and structured, same lighting
-> style and color grading as the previous image, no text, no logos.
+**3. Automate — Connecting**
+> Close-up on the same workbench, wide 16:9 shot. Hands connecting a belt
+> or wiring a simple mechanism into the now-finished object, caught at the
+> instant motion begins — slight motion blur on one moving part. Same warm
+> amber lighting and color grading as before, 35mm film look, hands and
+> objects only — no faces, no text or logos.
 
-**3. Scale**
-> Abstract 3D render, wide 16:9, same dark navy (#0a1f5c) and electric-blue
-> (#1a3fc4) palette and lighting style as the previous two images, the
-> node network now expanded dramatically into a large radiant mesh of
-> glowing connections spreading toward the edges of the frame, dense and
-> expansive, sense of growth and scale, no text, no logos.
+**4. Automate — Running**
+> A wider shot of the same workshop, wide 16:9. The mechanism now running
+> on its own — a belt spinning, a dial active, gentle motion blur on the
+> moving parts, nobody touching it. Morning light now brighter and golden.
+> Same amber and cream color grading as the previous images, 35mm film
+> look, no people, no text or logos.
+
+**5. Scale — Expanding**
+> The same workshop, now visibly bigger, wide 16:9 shot. A wall opened
+> into a second room, two more of the same kind of machine now lined up
+> and running, warm golden-hour light flooding the space. Same amber,
+> rust and cream color grading maintained throughout, 35mm film
+> photography look, no people, no text or logos.
+
+**6. Scale — Thriving**
+> A wide establishing shot of a full, bustling small workshop in golden
+> hour light, wide 16:9. Several of the same machines all running at
+> once, warm sunlight streaming through large windows, dust and light
+> beams visible, a sense of quiet productive energy. Same consistent warm
+> amber/rust/cream color grading as all previous images, 35mm film
+> photography look, no people or faces clearly visible, no text or logos.
 
 ---
 
 ## After generating
 
-Save the 3 images (from either set, or mix-and-match whichever individual
-ones look best) as:
+Save the 6 images as:
 
-- `public/story/build.jpg`
-- `public/story/automate.jpg`
-- `public/story/scale.jpg`
+- `public/story/1-build-raw.jpg`
+- `public/story/2-build-assembling.jpg`
+- `public/story/3-automate-connecting.jpg`
+- `public/story/4-automate-running.jpg`
+- `public/story/5-scale-expanding.jpg`
+- `public/story/6-scale-thriving.jpg`
 
 Drop them into those exact paths in the repo — the site already points
 there and will pick them up automatically, no code changes needed.

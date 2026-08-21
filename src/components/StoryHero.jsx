@@ -7,29 +7,50 @@ gsap.registerPlugin(ScrollTrigger)
 
 // Drop generated images at these exact paths (see story-image-prompts.md) —
 // they're picked up automatically, no code changes needed. Until then each
-// frame falls back to a brand-blue gradient so the section still looks
+// frame falls back to a warm ink gradient so the section still looks
 // intentional rather than broken.
-const ACTS = [
+const BEATS = [
   {
-    key: 'build',
-    step: '01',
-    title: 'We build.',
-    body: 'Every system starts as raw components — code, data, infrastructure — assembled with intent, not templates.',
-    image: '/story/build.jpg',
+    key: 'build-raw',
+    chapter: 'Build',
+    title: 'Every system starts empty.',
+    body: 'Before code, before workflows — just an idea and a blank bench.',
+    image: '/story/1-build-raw.jpg',
   },
   {
-    key: 'automate',
-    step: '02',
-    title: 'We automate.',
-    body: 'Manual steps become workflows. What was scattered starts moving on its own, connected end to end.',
-    image: '/story/automate.jpg',
+    key: 'build-assembling',
+    chapter: 'Build',
+    title: 'We build with intent.',
+    body: 'Not templates. Every piece placed on purpose, by hand.',
+    image: '/story/2-build-assembling.jpg',
   },
   {
-    key: 'scale',
-    step: '03',
-    title: 'We scale.',
-    body: 'The system grows outward with more capacity and reach, without losing the structure it was built on.',
-    image: '/story/scale.jpg',
+    key: 'automate-connecting',
+    chapter: 'Automate',
+    title: 'Then we connect it.',
+    body: 'The moment manual work becomes a system that runs itself.',
+    image: '/story/3-automate-connecting.jpg',
+  },
+  {
+    key: 'automate-running',
+    chapter: 'Automate',
+    title: 'And let it run.',
+    body: 'Workflows move on their own — steady, unattended, reliable.',
+    image: '/story/4-automate-running.jpg',
+  },
+  {
+    key: 'scale-expanding',
+    chapter: 'Scale',
+    title: 'The workshop grows.',
+    body: 'More capacity, more reach — without losing what it was built on.',
+    image: '/story/5-scale-expanding.jpg',
+  },
+  {
+    key: 'scale-thriving',
+    chapter: 'Scale',
+    title: 'This is what scale looks like.',
+    body: 'Not bigger for its own sake. Built to hold the weight of growth.',
+    image: '/story/6-scale-thriving.jpg',
   },
 ]
 
@@ -37,7 +58,8 @@ export default function StoryHero() {
   const pinRef = useRef(null)
   const frameRefs = useRef([])
   const captionRefs = useRef([])
-  const stepRefs = useRef([])
+  const chapterRef = useRef(null)
+  const dotRefs = useRef([])
   const progressRef = useRef(null)
 
   useLayoutEffect(() => {
@@ -49,28 +71,29 @@ export default function StoryHero() {
       gsap.set(captionRefs.current[0], { opacity: 1, y: 0 })
 
       const setActive = (idx) => {
-        stepRefs.current.forEach((el, i) => el && el.classList.toggle('is-active', i === idx))
+        dotRefs.current.forEach((el, i) => el && el.classList.toggle('is-active', i === idx))
+        if (chapterRef.current) chapterRef.current.textContent = BEATS[idx].chapter
       }
       setActive(0)
 
       if (reduceMotion) {
-        gsap.set(frameRefs.current[ACTS.length - 1], { opacity: 1, scale: 1 })
+        const last = BEATS.length - 1
+        gsap.set(frameRefs.current[last], { opacity: 1, scale: 1 })
         gsap.set(captionRefs.current, { opacity: 0 })
-        gsap.set(captionRefs.current[ACTS.length - 1], { opacity: 1, y: 0 })
-        setActive(ACTS.length - 1)
+        gsap.set(captionRefs.current[last], { opacity: 1, y: 0 })
+        setActive(last)
         return
       }
 
-      // slow continuous drift on every frame, independent of scroll, for a living feel
       frameRefs.current.forEach((f, i) => {
-        gsap.to(f, { scale: '+=0.06', duration: 8, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: i * 0.4 })
+        gsap.to(f, { scale: '+=0.06', duration: 9, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: i * 0.35 })
       })
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: pinRef.current,
           start: 'top top',
-          end: '+=2200',
+          end: '+=3400',
           scrub: 1,
           pin: true,
           anticipatePin: 1,
@@ -82,10 +105,10 @@ export default function StoryHero() {
         },
       })
 
-      const segment = 1 / (ACTS.length - 1)
+      const segment = 1 / (BEATS.length - 1)
 
-      ACTS.forEach((_, i) => {
-        if (i === ACTS.length - 1) return
+      BEATS.forEach((_, i) => {
+        if (i === BEATS.length - 1) return
         const start = i * segment
         tl.to(frameRefs.current[i], { opacity: 0, duration: segment * 0.7, ease: 'power2.inOut' }, start + segment * 0.15)
           .to(frameRefs.current[i + 1], { opacity: 1, duration: segment * 0.7, ease: 'power2.inOut' }, start + segment * 0.15)
@@ -101,13 +124,13 @@ export default function StoryHero() {
   return (
     <section className="story-hero" ref={pinRef}>
       <div className="story-frames" aria-hidden="true">
-        {ACTS.map((act, i) => (
+        {BEATS.map((beat, i) => (
           <div
-            key={act.key}
+            key={beat.key}
             className="story-frame"
             ref={(el) => (frameRefs.current[i] = el)}
             style={{
-              backgroundImage: `linear-gradient(160deg, var(--blue-900), var(--blue-600)), url(${act.image})`,
+              backgroundImage: `linear-gradient(160deg, var(--ink), var(--ink-800)), url(${beat.image})`,
             }}
           />
         ))}
@@ -120,22 +143,21 @@ export default function StoryHero() {
 
       <div className="container story-inner">
         <div className="story-copy">
-          <div className="story-stepper">
-            {ACTS.map((act, i) => (
-              <div key={act.key} className="story-step" ref={(el) => (stepRefs.current[i] = el)}>
-                <span className="story-step-num">{act.step}</span>
-                <span className="story-step-label">{act.title.replace('We ', '').replace('.', '')}</span>
-              </div>
+          <div className="story-dots" aria-hidden="true">
+            {BEATS.map((beat, i) => (
+              <span key={beat.key} className="story-dot" ref={(el) => (dotRefs.current[i] = el)} />
             ))}
           </div>
 
-          <p className="eyebrow">Aruya Tech</p>
+          <p className="eyebrow">
+            Aruya Tech — <span ref={chapterRef}>Build</span>
+          </p>
 
           <div className="story-captions">
-            {ACTS.map((act, i) => (
-              <div key={act.key} className="story-caption" ref={(el) => (captionRefs.current[i] = el)}>
-                <h1>{act.title}</h1>
-                <p>{act.body}</p>
+            {BEATS.map((beat, i) => (
+              <div key={beat.key} className="story-caption" ref={(el) => (captionRefs.current[i] = el)}>
+                <h1>{beat.title}</h1>
+                <p>{beat.body}</p>
               </div>
             ))}
           </div>

@@ -1,17 +1,19 @@
 :root {
-  --blue-900: #0a1f5c;
-  --blue-800: #102a7a;
-  --blue-600: #1a3fc4;
-  --blue-500: #2b52e0;
-  --blue-100: #e8ecfb;
-  --blue-50: #f4f6fd;
+  /* warm, documentary-photo palette — deliberately not tech-blue */
+  --ink: #211a15;
+  --ink-800: #382a20;
+  --accent: #b8481f;
+  --accent-hover: #96391a;
+  --accent-soft: #d9764f;
+  --accent-gold: #b98a2e;
+  --tint: #f1e3d3;
+  --tint-soft: #f8f1e6;
 
-  --ink: #0b0e1a;
-  --body: #454b5c;
-  --muted: #7d8298;
-  --line: #e6e8f0;
-  --bg: #ffffff;
-  --surface: #f7f8fc;
+  --body: #5b5147;
+  --muted: #8c8074;
+  --line: #e6dcc9;
+  --bg: #fffdfa;
+  --surface: #f7f1e6;
 
   --white: #ffffff;
 
@@ -92,7 +94,7 @@ h4 {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--blue-600);
+  color: var(--accent);
   margin-bottom: 12px;
 }
 
@@ -145,12 +147,12 @@ h4 {
 }
 
 .btn-primary {
-  background: var(--blue-600);
+  background: var(--accent);
   color: var(--white);
 }
 
 .btn-primary:hover {
-  background: var(--blue-800);
+  background: var(--accent-hover);
 }
 
 .btn-ghost {
@@ -160,8 +162,8 @@ h4 {
 }
 
 .btn-ghost:hover {
-  border-color: var(--blue-600);
-  color: var(--blue-600);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .btn-ghost-light {

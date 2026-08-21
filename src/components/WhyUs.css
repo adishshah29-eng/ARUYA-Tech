@@ -1,11 +1,11 @@
 .audience {
-  background: var(--blue-900);
-  background: linear-gradient(160deg, var(--blue-900), var(--blue-600));
+  background: var(--ink);
+  background: linear-gradient(160deg, var(--ink), var(--accent));
   color: var(--white);
 }
 
 .audience .eyebrow {
-  color: #bcd0ff;
+  color: #f0cba8;
 }
 
 .audience .section-head h2 {

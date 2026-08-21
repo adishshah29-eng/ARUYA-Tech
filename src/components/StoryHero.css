@@ -18,9 +18,11 @@
 .story-frame {
   position: absolute;
   inset: 0;
-  background-size: cover, cover;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: var(--ink);
   will-change: opacity, transform;
 }
 

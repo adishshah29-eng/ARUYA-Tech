@@ -137,13 +137,14 @@ export default function StoryHero() {
     <section className="story-hero" ref={pinRef}>
       <div className="story-frames" aria-hidden="true">
         {BEATS.map((beat, i) => (
-          <div
+          <img
             key={beat.key}
             className="story-frame"
             ref={(el) => (frameRefs.current[i] = el)}
-            style={{
-              backgroundImage: `url(${beat.image}), linear-gradient(160deg, var(--ink), var(--ink-800))`,
-            }}
+            src={beat.image}
+            alt=""
+            decoding={i === 0 ? 'sync' : 'async'}
+            fetchPriority={i === 0 ? 'high' : 'low'}
           />
         ))}
         <div className="story-scrim" />

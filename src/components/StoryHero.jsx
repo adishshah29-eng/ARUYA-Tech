@@ -7,50 +7,50 @@ gsap.registerPlugin(ScrollTrigger)
 
 // Drop generated images at these exact paths (see story-image-prompts.md) —
 // they're picked up automatically, no code changes needed. Until then each
-// frame falls back to a warm ink gradient so the section still looks
+// frame falls back to a deep navy gradient so the section still looks
 // intentional rather than broken.
 const BEATS = [
   {
-    key: 'discover-mess',
+    key: 'discover-alone',
     chapter: 'Discover',
-    title: 'It starts with the mess.',
-    body: 'Spreadsheets, sticky notes, disconnected tools — the reality before a real system exists.',
-    image: '/story/1-discover-mess.jpg',
+    title: 'It starts with one person.',
+    body: 'Before the system exists, someone is just trying to see the whole picture.',
+    image: '/story/1-discover-alone.jpg',
   },
   {
-    key: 'build-design',
+    key: 'build-connect',
     chapter: 'Build',
-    title: 'We design the system.',
-    body: 'Wireframes become working software — architecture first, screens second.',
-    image: '/story/2-build-design.jpg',
+    title: 'Then the first connections form.',
+    body: 'Ideas turn into structure — the beginning of something that can scale.',
+    image: '/story/2-build-connect.jpg',
   },
   {
-    key: 'automate-connect',
+    key: 'automate-link',
     chapter: 'Automate',
-    title: 'Then we wire it together.',
-    body: 'Manual steps become workflows — automations that used to be someone’s job.',
-    image: '/story/3-automate-connect.jpg',
+    title: 'The system starts linking everything together.',
+    body: 'Manual steps quietly become a network that runs on its own.',
+    image: '/story/3-automate-link.jpg',
   },
   {
-    key: 'automate-run',
+    key: 'automate-live',
     chapter: 'Automate',
-    title: 'And it runs on its own.',
-    body: 'Dashboards update live. Nobody’s babysitting a spreadsheet anymore.',
-    image: '/story/4-automate-run.jpg',
+    title: 'And the data comes alive.',
+    body: 'Dashboards update in real time — the system is finally running itself.',
+    image: '/story/4-automate-live.jpg',
   },
   {
-    key: 'scale-expand',
+    key: 'scale-team',
     chapter: 'Scale',
-    title: 'The system grows with you.',
-    body: 'More dashboards, more data, more capacity — same architecture underneath.',
-    image: '/story/5-scale-expand.jpg',
+    title: 'The team grows into the system.',
+    body: 'More people, more desks, same architecture holding it all together.',
+    image: '/story/5-scale-team.jpg',
   },
   {
-    key: 'scale-thrive',
+    key: 'scale-full',
     chapter: 'Scale',
-    title: 'This is what it looks like at scale.',
-    body: 'A business running on systems built to hold real weight.',
-    image: '/story/6-scale-thrive.jpg',
+    title: 'This is what full scale looks like.',
+    body: 'A business running on a system built to grow with it.',
+    image: '/story/6-scale-full.jpg',
   },
 ]
 

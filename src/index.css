@@ -1,23 +1,20 @@
 :root {
-  /* warm, documentary-photo palette — deliberately not tech-blue.
-     ink+cream base, one vivid warm accent, one sparing teal counterpoint
-     so it doesn't read as monochrome rust. */
-  --ink: #140f0b;
-  --ink-800: #2c2016;
-  --accent: #e2551c;
-  --accent-hover: #c2440f;
-  --accent-soft: #f3946a;
+  /* deep navy + electric blue, sampled from the hero photography's own
+     glow, with one warm gold counterpoint so it isn't monochrome blue. */
+  --ink: #090c14;
+  --ink-800: #131a2c;
+  --accent: #2f6fed;
+  --accent-hover: #234fc0;
+  --accent-soft: #6fa8ff;
   --accent-gold: #d9a53f;
-  --teal: #1f6f62;
-  --teal-soft: #4d9c8e;
-  --tint: #f3ded0;
-  --tint-soft: #faf3ea;
+  --tint: #e2ecff;
+  --tint-soft: #f4f7fd;
 
-  --body: #55493d;
-  --muted: #8c7d6c;
-  --line: #e6d9c4;
-  --bg: #fffcf7;
-  --surface: #f7ecdc;
+  --body: #414a5c;
+  --muted: #7c8698;
+  --line: #dde3ee;
+  --bg: #f9fafc;
+  --surface: #eef1f7;
 
   --white: #ffffff;
 

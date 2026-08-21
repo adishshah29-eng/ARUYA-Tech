@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
+import SplitReveal from './SplitReveal'
 import './Contact.css'
 
 export default function Contact() {
@@ -17,11 +18,11 @@ export default function Contact() {
   return (
     <section id="contact" className="section contact">
       <div className="container">
-        <Reveal as="div" className="section-head">
-          <p className="eyebrow">Contact</p>
-          <h2>Let's talk about what you're building</h2>
-          <p>Reach out for project enquiries, collaborations, or service requests — we usually reply within a day.</p>
-        </Reveal>
+        <div className="section-head">
+          <Reveal as="p" className="eyebrow">Contact</Reveal>
+          <SplitReveal text="Let's talk about what you're building" />
+          <Reveal as="p" delay={120}>Reach out for project enquiries, collaborations, or service requests — we usually reply within a day.</Reveal>
+        </div>
 
         <div className="contact-grid">
           <Reveal as="form" className="contact-form" onSubmit={handleSubmit}>

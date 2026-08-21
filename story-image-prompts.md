@@ -1,82 +1,99 @@
-# Story image prompts — "A business becomes a system"
+# Story image prompts v2 — locked camera, one desk, new palette
 
-This is grounded in what Aruya Tech actually does (website/app development,
-automation, data & analytics, cloud/e-commerce), not an unrelated metaphor.
-The sequence shows one desk setup evolving: a messy manual business →
-Aruya designs and builds software for it → it gets automated → it runs
-live → it scales into a full multi-dashboard operation.
+**What changed from v1**: the previous set used a consistent desk for beats
+1–4 but then cut to a totally different wide office for beats 5–6. That
+breaks the "locked camera" feel and also crops badly on mobile (a wide
+establishing shot loses all its meaning cropped to a phone-width strip).
 
-**No people, no hands, no faces** — screens, devices and a desk only. This
-keeps the focus on the product/systems (which is the actual thing being
-sold) and keeps AI generation consistent without needing a recurring
-"character."
+**This version never moves the camera and never leaves the desk.** Scale
+is shown by *more monitors appearing on the same desk over the sequence*
+— 1 laptop → 2 screens → 3 screens, same framing throughout, like a
+time-lapse of the same tripod-mounted shot. This also fixes the mobile
+crop problem: no wide shot to lose.
 
-**Palette note, baked into every prompt**: the on-screen UI mockups should
-use warm terracotta/rust, cream and dark ink tones — Aruya's own palette —
-not the generic blue SaaS-dashboard look. This is deliberate: the fictional
-product shown in the story uses the same colors as the real site around it,
-so the story visually reinforces the brand instead of fighting it.
+## Shared setup — paste this before EVERY prompt, unchanged, word for word
 
-Generate all 6 in the same ChatGPT session for consistency. Ask for 16:9
-landscape. If one drifts, regenerate it referencing "match the lighting,
-desk, and color grading of the previous image."
+> Camera fixed and unmoving across the whole sequence: eye-level, straight
+> on, same 35mm-equivalent framing, same crop, same distance from the desk
+> — like a single tripod-mounted camera shooting a time-lapse, nothing
+> about the camera position ever changes. A wooden desk in front of a
+> large window on the left letting in warm natural light, a small stack
+> of books and two potted plants on the windowsill, a corkboard with
+> papers pinned to it on the wall behind and to the right of the desk, a
+> ceramic coffee mug near the left edge of the desk. No people, no hands,
+> no faces, photorealistic, 35mm film photography look.
+
+## Palette — paste this into every prompt too
+
+> Every screen, UI mockup, and glowing element uses this exact palette:
+> near-black backgrounds (#140f0b), a vivid orange-red accent (#e2551c),
+> soft coral highlights (#f3946a), warm gold accents (#d9a53f), a deep
+> teal counterpoint used sparingly (#1f6f62), and cream/off-white text
+> (#faf3ea). No blue anywhere, no green except the specified teal, no
+> purple.
 
 ---
 
 **1. Discover — The Mess**
-> A wide 16:9 photograph of a home-office desk in warm morning light. A
-> laptop screen shows a cluttered spreadsheet with too many tabs and
-> messy manually color-coded cells. Scattered around it: sticky notes, a
-> printed page with handwritten arrows and boxes, a coffee cup. No
-> people, no hands, no faces. Warm amber and cream color grading, natural
-> window light, shallow depth of field, photorealistic, no legible text
-> beyond generic grid lines, no logos.
+> [shared setup] + [palette]. Only one laptop on the desk, no external
+> monitor yet. The laptop screen shows a cluttered spreadsheet with
+> messy color-coded cells in the specified orange/gold tones on a cream
+> background. The desk is covered in loose papers, sticky notes, a
+> notebook, a calculator. Soft early-morning light.
 
 **2. Build — Designing the System**
-> The same desk, wide 16:9. The laptop screen now shows a clean wireframe
-> or UI mockup of a website or app in progress — simple boxes and grid
-> lines, warm terracotta and cream color accents on screen. A second
-> monitor beside it shows a code editor with a few lines of colorful
-> syntax-highlighted code. Warm tungsten desk lighting, same color
-> grading as the previous image, no people, no hands, no faces, no
-> readable text or logos.
+> [shared setup, but a second monitor now sits beside the laptop —
+> everything else about the desk and camera identical to image 1] +
+> [palette]. The laptop screen now shows a clean wireframe/UI mockup:
+> near-black background, vivid orange accents, cream text blocks. The
+> second monitor shows a code editor with syntax highlighting in the
+> orange/gold/teal palette. Papers now organized into a small stack.
+> Light slightly brighter and warmer than image 1.
 
 **3. Automate — Connecting the Workflow**
-> The same desk, wide 16:9, closer on the second monitor. The screen now
-> shows a workflow-automation diagram — simple connected nodes and arrows
-> in warm rust and cream tones, like an automation builder. Cables on the
-> desk now neatly organized. Same warm lighting and color grading as
-> before, no people, no readable text or logos.
+> [shared setup, same desk and same two monitors as image 2, camera
+> unchanged] + [palette]. The second monitor now shows a workflow/
+> automation diagram — connected nodes and arrows glowing in vivid
+> orange, with one or two teal accent nodes for contrast, on a near-
+> black background. Cables on the desk now visibly tidied. Same warm
+> light, slightly more golden.
 
 **4. Automate — Running Live**
-> The same desk, wider 16:9 shot, now with two monitors. One shows the
-> automation diagram highlighted as if actively running, the other shows
-> a live dashboard with simple bar and line charts in warm rust, gold and
-> cream tones. Morning light now brighter and golden. No people, no
-> readable text or logos, same color grading throughout.
+> [shared setup, same desk and same two monitors, camera unchanged] +
+> [palette]. The workflow diagram on the second monitor is now lit up
+> and active. The laptop screen now shows a live dashboard with bar and
+> line charts in orange, gold and teal on a near-black background.
+> Golden-hour light now streaming more directly through the window.
 
 **5. Scale — More Systems**
-> A wider 16:9 shot of the same style desk setup, now duplicated — two
-> more desks visible nearby, each with their own monitors showing
-> different dashboards (one an e-commerce storefront mockup, one a
-> data-analytics chart view), all in the same warm rust/cream/gold visual
-> language. Warm golden-hour light filling the room. No people, no
-> readable text or logos.
+> [shared setup, same desk, but a THIRD monitor now appears beside the
+> other two — camera and crop still completely unchanged] + [palette].
+> The third monitor shows a second dashboard with more charts and data
+> in the same palette. The original two screens still show the workflow
+> diagram and live dashboard. Papers now reduced to one tidy stack. Same
+> warm golden light.
 
 **6. Scale — At Full Capacity**
-> A wide establishing 16:9 shot of a small open workspace, several desks
-> each with multiple monitors, all tiled with live dashboards, charts and
-> a storefront screen, warm golden-hour sunlight streaming through large
-> windows. A sense of a mature, thriving operation running on connected
-> systems. Same consistent warm rust/gold/cream color grading as all
-> previous images. No people, no readable text or logos.
+> [shared setup, same desk, same camera, all three monitors from image 5
+> now fully lit and glowing] + [palette]. All three screens together
+> show a rich, cohesive set of dashboards, a storefront mockup, and the
+> workflow diagram, fully in the specified palette with cream highlight
+> text. Warm late-afternoon golden light fully filling the room, coffee
+> mug still in its same spot. A sense of a mature system running — but
+> still unmistakably the same desk and camera angle as image 1.
 
 ---
 
+## Generating
+
+Do all 6 in the same ChatGPT session, in order, and reference the
+previous image each time ("same desk, same camera angle, same crop as
+the last image — only add the described change"). If one drifts, redo it
+referencing the one before it specifically.
+
 ## After generating
 
-Save the 6 images as:
-
+Save as:
 - `public/story/1-discover-mess.jpg`
 - `public/story/2-build-design.jpg`
 - `public/story/3-automate-connect.jpg`
@@ -84,5 +101,5 @@ Save the 6 images as:
 - `public/story/5-scale-expand.jpg`
 - `public/story/6-scale-thrive.jpg`
 
-Drop them into those exact paths in the repo — the site already points
-there and will pick them up automatically, no code changes needed.
+Same filenames as before — dropping these in overwrites the current set,
+no code changes needed.

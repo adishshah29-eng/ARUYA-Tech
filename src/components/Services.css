@@ -16,10 +16,14 @@
   border-top-color: var(--accent);
 }
 .pillar-automate {
-  border-top-color: var(--accent-soft);
+  border-top-color: var(--teal);
 }
 .pillar-scale {
   border-top-color: var(--accent-gold);
+}
+
+.pillar-automate .pillar-index {
+  color: var(--teal);
 }
 
 .pillar-head {

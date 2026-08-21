@@ -58,17 +58,29 @@ export default function StoryHero() {
   const pinRef = useRef(null)
   const frameRefs = useRef([])
   const captionRefs = useRef([])
+  const titleRefs = useRef([])
   const chapterRef = useRef(null)
   const dotRefs = useRef([])
   const progressRef = useRef(null)
 
   useLayoutEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    // a locked-camera "wipe": each incoming frame reveals itself over the
+    // static frame beneath it via a diagonal clip-path sweep, rather than
+    // cross-dissolving. The camera never moves — only the clipped shape
+    // reveals the next frame, which reads as a real scene change instead
+    // of a soft fade.
+    const HIDDEN_CLIP = 'polygon(120% 0%, 100% 0%, 100% 100%, 100% 100%)'
+    const REVEALED_CLIP = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
+
     const ctx = gsap.context(() => {
-      gsap.set(frameRefs.current, { opacity: 0, scale: 1.08 })
-      gsap.set(frameRefs.current[0], { opacity: 1 })
-      gsap.set(captionRefs.current, { opacity: 0, y: 16 })
-      gsap.set(captionRefs.current[0], { opacity: 1, y: 0 })
+      gsap.set(frameRefs.current, { clipPath: HIDDEN_CLIP, scale: 1.05 })
+      gsap.set(frameRefs.current[0], { clipPath: REVEALED_CLIP })
+      gsap.set(captionRefs.current, { opacity: 0 })
+      gsap.set(captionRefs.current[0], { opacity: 1 })
+      gsap.set(titleRefs.current, { yPercent: 100 })
+      gsap.set(titleRefs.current[0], { yPercent: 0 })
 
       const setActive = (idx) => {
         dotRefs.current.forEach((el, i) => el && el.classList.toggle('is-active', i === idx))
@@ -78,15 +90,16 @@ export default function StoryHero() {
 
       if (reduceMotion) {
         const last = BEATS.length - 1
-        gsap.set(frameRefs.current[last], { opacity: 1, scale: 1 })
+        gsap.set(frameRefs.current, { clipPath: REVEALED_CLIP, scale: 1 })
         gsap.set(captionRefs.current, { opacity: 0 })
-        gsap.set(captionRefs.current[last], { opacity: 1, y: 0 })
+        gsap.set(captionRefs.current[last], { opacity: 1 })
+        gsap.set(titleRefs.current, { yPercent: 0 })
         setActive(last)
         return
       }
 
       frameRefs.current.forEach((f, i) => {
-        gsap.to(f, { scale: '+=0.06', duration: 9, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: i * 0.35 })
+        gsap.to(f, { scale: '+=0.05', duration: 9, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: i * 0.35 })
       })
 
       const tl = gsap.timeline({
@@ -110,11 +123,13 @@ export default function StoryHero() {
       BEATS.forEach((_, i) => {
         if (i === BEATS.length - 1) return
         const start = i * segment
-        tl.to(frameRefs.current[i], { opacity: 0, duration: segment * 0.7, ease: 'power2.inOut' }, start + segment * 0.15)
-          .to(frameRefs.current[i + 1], { opacity: 1, duration: segment * 0.7, ease: 'power2.inOut' }, start + segment * 0.15)
-          .to(captionRefs.current[i], { opacity: 0, y: -16, duration: segment * 0.35 }, start + segment * 0.05)
+        tl.to(frameRefs.current[i + 1], { clipPath: REVEALED_CLIP, duration: segment * 0.55, ease: 'power2.inOut' }, start + segment * 0.15)
+          .to(titleRefs.current[i], { yPercent: -100, duration: segment * 0.32, ease: 'power2.in' }, start + segment * 0.05)
+          .to(captionRefs.current[i], { opacity: 0, duration: segment * 0.25 }, start + segment * 0.1)
           .call(() => setActive(i + 1), null, start + segment * 0.4)
-          .to(captionRefs.current[i + 1], { opacity: 1, y: 0, duration: segment * 0.35 }, start + segment * 0.45)
+          .set(captionRefs.current[i + 1], { opacity: 1 }, start + segment * 0.4)
+          .set(titleRefs.current[i + 1], { yPercent: 100 }, start + segment * 0.4)
+          .to(titleRefs.current[i + 1], { yPercent: 0, duration: segment * 0.4, ease: 'power3.out' }, start + segment * 0.42)
       })
     })
 
@@ -156,7 +171,9 @@ export default function StoryHero() {
           <div className="story-captions">
             {BEATS.map((beat, i) => (
               <div key={beat.key} className="story-caption" ref={(el) => (captionRefs.current[i] = el)}>
-                <h1>{beat.title}</h1>
+                <div className="story-title-mask">
+                  <h1 ref={(el) => (titleRefs.current[i] = el)}>{beat.title}</h1>
+                </div>
                 <p>{beat.body}</p>
               </div>
             ))}

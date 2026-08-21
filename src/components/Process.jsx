@@ -1,4 +1,5 @@
 import Reveal from './Reveal'
+import SplitReveal from './SplitReveal'
 import './Process.css'
 
 const STEPS = [
@@ -12,10 +13,10 @@ export default function Process() {
   return (
     <section id="process" className="section process">
       <div className="container">
-        <Reveal as="div" className="section-head">
-          <p className="eyebrow">How We Work</p>
-          <h2>A clear, structured journey from idea to launch</h2>
-        </Reveal>
+        <div className="section-head">
+          <Reveal as="p" className="eyebrow">How We Work</Reveal>
+          <SplitReveal text="A clear, structured journey from idea to launch" />
+        </div>
 
         <ol className="process-line">
           {STEPS.map((step, i) => (

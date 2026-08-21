@@ -1,4 +1,5 @@
 import Reveal from './Reveal'
+import SplitReveal from './SplitReveal'
 import './WhyUs.css'
 
 const AUDIENCE = ['Startups', 'SMEs', 'D2C Brands', 'Consultants', 'Enterprises']
@@ -17,11 +18,11 @@ export default function WhyUs() {
     <>
       <section id="who-we-work-with" className="section audience">
         <div className="container">
-          <Reveal as="div" className="section-head">
-            <p className="eyebrow">Who We Work With</p>
-            <h2>Businesses that need real engineering capacity</h2>
-            <p>Scalable systems, automation and the right team to grow — whatever stage you're at.</p>
-          </Reveal>
+          <div className="section-head">
+            <Reveal as="p" className="eyebrow">Who We Work With</Reveal>
+            <SplitReveal text="Businesses that need real engineering capacity" />
+            <Reveal as="p" delay={120}>Scalable systems, automation and the right team to grow — whatever stage you're at.</Reveal>
+          </div>
           <div className="audience-pills">
             {AUDIENCE.map((a, i) => (
               <Reveal as="span" key={a} className="audience-pill" delay={i * 60}>
@@ -34,10 +35,10 @@ export default function WhyUs() {
 
       <section id="why-us" className="section why-us">
         <div className="container">
-          <Reveal as="div" className="section-head">
-            <p className="eyebrow">Why Work With Us</p>
-            <h2>Deep technical skill, business-first mindset</h2>
-          </Reveal>
+          <div className="section-head">
+            <Reveal as="p" className="eyebrow">Why Work With Us</Reveal>
+            <SplitReveal text="Deep technical skill, business-first mindset" />
+          </div>
           <div className="reasons-grid">
             {REASONS.map((r, i) => (
               <Reveal as="div" key={r.title} className="reason-card" delay={(i % 3) * 90}>

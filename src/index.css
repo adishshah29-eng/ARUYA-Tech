@@ -1,19 +1,23 @@
 :root {
-  /* warm, documentary-photo palette — deliberately not tech-blue */
-  --ink: #211a15;
-  --ink-800: #382a20;
-  --accent: #b8481f;
-  --accent-hover: #96391a;
-  --accent-soft: #d9764f;
-  --accent-gold: #b98a2e;
-  --tint: #f1e3d3;
-  --tint-soft: #f8f1e6;
+  /* warm, documentary-photo palette — deliberately not tech-blue.
+     ink+cream base, one vivid warm accent, one sparing teal counterpoint
+     so it doesn't read as monochrome rust. */
+  --ink: #140f0b;
+  --ink-800: #2c2016;
+  --accent: #e2551c;
+  --accent-hover: #c2440f;
+  --accent-soft: #f3946a;
+  --accent-gold: #d9a53f;
+  --teal: #1f6f62;
+  --teal-soft: #4d9c8e;
+  --tint: #f3ded0;
+  --tint-soft: #faf3ea;
 
-  --body: #5b5147;
-  --muted: #8c8074;
-  --line: #e6dcc9;
-  --bg: #fffdfa;
-  --surface: #f7f1e6;
+  --body: #55493d;
+  --muted: #8c7d6c;
+  --line: #e6d9c4;
+  --bg: #fffcf7;
+  --surface: #f7ecdc;
 
   --white: #ffffff;
 
@@ -203,4 +207,16 @@ h4 {
   .reveal {
     transition: none;
   }
+}
+
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  line-height: 1.15;
+}
+
+.split-word-inner {
+  display: inline-block;
+  will-change: transform, opacity;
 }

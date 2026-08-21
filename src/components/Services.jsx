@@ -1,4 +1,5 @@
 import Reveal from './Reveal'
+import SplitReveal from './SplitReveal'
 import './Services.css'
 
 const PILLARS = [
@@ -38,11 +39,11 @@ export default function Services() {
   return (
     <section id="services" className="section services">
       <div className="container">
-        <Reveal as="div" className="section-head">
-          <p className="eyebrow">What We Do</p>
-          <h2>Everything you need to build, automate and scale</h2>
-          <p>Organised the same way we work — not a flat list of nine buzzwords.</p>
-        </Reveal>
+        <div className="section-head">
+          <Reveal as="p" className="eyebrow">What We Do</Reveal>
+          <SplitReveal text="Everything you need to build, automate and scale" />
+          <Reveal as="p" delay={120}>Organised the same way we work — not a flat list of nine buzzwords.</Reveal>
+        </div>
 
         <div className="pillars">
           {PILLARS.map((pillar, pi) => (

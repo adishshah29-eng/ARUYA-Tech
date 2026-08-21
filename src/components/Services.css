@@ -1,0 +1,87 @@
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pillar {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  border-top: 3px solid var(--blue-600);
+}
+
+.pillar-build {
+  border-top-color: #1a3fc4;
+}
+.pillar-automate {
+  border-top-color: #2b52e0;
+}
+.pillar-scale {
+  border-top-color: #5470ec;
+}
+
+.pillar-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.pillar-index {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue-600);
+  letter-spacing: 0.04em;
+}
+
+.pillar-head h3 {
+  font-size: 22px;
+}
+
+.pillar-blurb {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.pillar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pillar-list li {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pillar-list li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.pillar-item-title {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.pillar-item-desc {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+@media (max-width: 980px) {
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+}

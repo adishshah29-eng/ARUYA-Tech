@@ -32,13 +32,6 @@ const BEATS = [
     image: '/story/2-build-connect.jpg',
   },
   {
-    key: 'automate-live',
-    chapter: 'Automate',
-    title: 'And the data comes alive.',
-    body: 'Dashboards update in real time — the system is finally running itself.',
-    image: '/story/5-scale-team.jpg',
-  },
-  {
     key: 'scale-team',
     chapter: 'Scale',
     title: 'The team grows into the system.',

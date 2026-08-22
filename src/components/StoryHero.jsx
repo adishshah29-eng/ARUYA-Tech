@@ -36,21 +36,14 @@ const BEATS = [
     chapter: 'Automate',
     title: 'And the data comes alive.',
     body: 'Dashboards update in real time — the system is finally running itself.',
-    image: '/story/4-automate-live.jpg',
+    image: '/story/5-scale-team.jpg',
   },
   {
     key: 'scale-team',
     chapter: 'Scale',
     title: 'The team grows into the system.',
     body: 'More people, more desks, same architecture holding it all together.',
-    image: '/story/5-scale-team.jpg',
-  },
-  {
-    key: 'scale-full',
-    chapter: 'Scale',
-    title: 'This is what full scale looks like.',
-    body: 'A business running on a system built to grow with it.',
-    image: '/story/6-scale-full.jpg',
+    image: '/story/4-automate-live.jpg',
   },
 ]
 
